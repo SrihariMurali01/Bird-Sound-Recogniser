@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* General Body Styling */
+        body {
+            background: url("{{ url_for('static', filename='images/bg_res.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Container Styling */
+        .container {
+            background: rgba(255, 255, 255, 1); /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Heading Styling */
+        h1 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+            font-size: 2em;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styling */
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: block;        /* Ensure it behaves as a block-level element */
+            margin: 40px auto 0;   /* Add top margin and center the button */
+            text-align: center;    /* Center the text within the button */
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .btn:active {
+            background-color: #3e8e41;
+        }
+        
+
+        /* Audio Player Styling */
+        audio {
+            margin-top: 20px;
+            width: 100%;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <p>The predicted bird species is: <strong>{{ bird_species.capitalize() }}</strong></p>
+        <audio controls style="width: 100%; margin-top: -10px; outline: none;">
+            <source src="{{ url_for('static', filename='uploads/' + filename) }}" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <a href="/" class="btn">Go Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Sound Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* General Body Styling */
+        body {
+            background: url("{{ url_for('static', filename='images/bg_main.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Container Styling */
+        .container {
+            background: rgba(255, 255, 255, 1); /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Heading Styling */
+        h1 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+            font-size: 2em;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* File Input Styling */
+        input[type="file"] {
+            display: block;
+            margin: 20px auto;
+            font-size: 1.1em;
+            padding: 10px;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="file"]:hover {
+            border-color: #4CAF50;
+        }
+
+        /* Button Styling */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="submit"]:active {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bird Sound Recognition</h1>
+        <p>Upload an audio file to identify the bird species.</p>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".ogg,.wav,.mp3" required>
+            <input type="submit" value="Predict Bird Species">
+        </form>
+    </div>
+</body>
+</html>
