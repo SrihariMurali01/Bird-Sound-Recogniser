@@ -61,6 +61,7 @@ To view detailed metrics of the model, navigate to the [Metrics](./Metrics) fold
 ## Excluded Files
 
 - The `Data/` directory containing training data is excluded from the repository to keep the repository size manageable.
+- You still can download the dataset here [Dataset Drive Link](https://drive.google.com/drive/folders/1anNzV34jgVZmoVBALZ7GngNElLWBCyE4?usp=sharing)
 
 ## Snapshots
 
